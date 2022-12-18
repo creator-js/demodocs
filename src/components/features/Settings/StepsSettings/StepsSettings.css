@@ -1,0 +1,22 @@
+.dg__settings {
+    width: 300px;
+    padding: 24px;
+    background-color: var(--tile);
+}
+
+.dg__settings {
+    color: var(--title)
+}
+
+.dg__settings-title {
+    margin-bottom: 24px;
+}
+
+.dg__settings-steps {
+    display: flex;
+    flex-direction: column;
+}
+
+.dg__settings-footer {
+    margin-top: 24px;
+}

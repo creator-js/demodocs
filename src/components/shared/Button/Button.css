@@ -1,0 +1,15 @@
+.dg__button {
+    outline: none;
+    height: var(--form-control-height);
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: var(--form-control-border);
+    border-color: transparent;
+    border-radius: var(--form-control-border-radius);
+    font-size: var(--form-control-font-size);
+    background-color: var(--button);
+    color: var(--tile);
+}

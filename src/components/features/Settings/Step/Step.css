@@ -1,0 +1,17 @@
+.dg__step {
+    padding: 16px 24px;
+    margin: 0 -24px;
+    transition: background-color 0.15s ease-in-out;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dg__step:hover {
+    background-color: var(--tile-hover);
+}
+
+.dg__step-number {
+    color: var(--text);
+    font-family: monospace;
+}

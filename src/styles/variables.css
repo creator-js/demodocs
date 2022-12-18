@@ -1,0 +1,15 @@
+:root {
+    --background: #232736;
+    --tile: #292f42;
+    --tile-hover: #30364c;
+    --header: #252b3b;
+
+    --text: #e6e6e6;
+    --title: #e6e6e6;
+    --button: #e6e6e6;
+
+    --form-control-height: 32px;
+    --form-control-border-radius: 4px;
+    --form-control-border: 1px solid;
+    --form-control-font-size: 14px;
+}

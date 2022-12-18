@@ -1,0 +1,9 @@
+.dg__code-painter {
+    position: relative;
+}
+
+.dg__code-line {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}

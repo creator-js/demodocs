@@ -1,0 +1,13 @@
+.dg__input {
+    height: var(--form-control-height);
+    border-radius: var(--form-control-border-radius);
+    border: var(--form-control-border);
+    font-size: var(--form-control-font-size);
+    background-color: var(--button);
+    color: var(--tile);
+    padding: 0 8px;
+}
+
+.dg__input::placeholder {
+    color: var(--tile);
+}

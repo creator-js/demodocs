@@ -1,0 +1,39 @@
+.editor {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+    min-height: 0;
+}
+
+.editor__code-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+    overflow: auto;
+}
+
+.editor__code {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    font-family: monospace;
+    font-size: 14px;
+    color: white;
+
+    display: flex;
+    flex: 1 auto;
+}
+
+.editor__code-numbers {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+    max-width: 40px;
+    user-select: none;
+}
+
+.editor__code-lines {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto;
+}
