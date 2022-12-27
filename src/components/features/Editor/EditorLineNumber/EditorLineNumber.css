@@ -1,9 +1,13 @@
 .editor-line-number {
     width: 40px;
-    height: 24px;
+    height: 25px;
+    border-bottom: 1px solid #333237;
     padding-right: 14px;
     text-align: right;
     background-color: #333237;
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 
 .editor-line-number-text {

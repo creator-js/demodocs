@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import './Scene.css';
+import { EditProvider } from '../Settings/EditProvider';
 
 interface IProps {
     children: ReactNode | ReactNode[];
@@ -8,7 +9,9 @@ interface IProps {
 export const Scene: React.FC<IProps> = ({ children }: IProps) => {
   return (
     <div className='dg__scene'>
-      { children }
+      <EditProvider>
+        { children }
+      </EditProvider>
     </div>
   );
 };

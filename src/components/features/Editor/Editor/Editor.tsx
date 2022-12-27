@@ -1,12 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { EditorHeader } from '../EditorHeader';
 import { EditorLineNumber } from '../EditorLineNumber';
 import './Editor.css';
-import { CodePainter } from '../../Settings/CodePainter';
+import { ILine } from '../../../../@types/steps';
+import { EditLine } from '../../Settings/EditLine';
+import { EditLineContext } from '../../Settings/EditProvider/EditProvider';
 
 export const Editor = () => {
 
   const editorRef = useRef<HTMLDivElement>(null);
+
+  const { lines } = useContext(EditLineContext);
+
+  const lineNumbersJSX = lines.map((l: ILine, i: number) => <EditorLineNumber key={l.id} n={i}/>);
+
+  const linesJSX = lines.map((line: ILine) => <EditLine key={line.id} line={line}/>);
 
   return (
     <div className='editor'>
@@ -15,10 +23,10 @@ export const Editor = () => {
       <div className='editor__code-wrapper' ref={editorRef}>
         <div className='editor__code'>
           <div className='editor__code-numbers'>
-            <EditorLineNumber n={1}/>
+            {lineNumbersJSX}
           </div>
           <div className='editor__code-lines'>
-            <CodePainter code='const x = 5;'/>
+            {linesJSX}
           </div>
         </div>
       </div>

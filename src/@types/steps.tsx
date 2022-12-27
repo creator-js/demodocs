@@ -8,6 +8,7 @@ export interface IStep {
 }
 
 export interface ILine {
+    id: string;
     depth: number;
     elements: ILineElement[],
     appearOnStep?: number;
@@ -15,6 +16,7 @@ export interface ILine {
 }
 
 export interface ILineElement {
+    id: string;
     content: string;
     token: string;
     appearOnStep?: number;
