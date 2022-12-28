@@ -37,7 +37,7 @@ export const EditElement: React.FC<IProps> = ({ line, lineElement }: IProps) => 
     const target = e.target as HTMLDivElement;
 
     if (e.code === 'Tab') {
-      addElement(line.id);
+      addElement(line.id, lineElement.id);
       e.preventDefault();
     }
 

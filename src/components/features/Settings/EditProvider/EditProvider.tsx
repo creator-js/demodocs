@@ -10,7 +10,7 @@ export interface IEditLineContext {
   setLines: Dispatch<SetStateAction<ILine[]>>;
   addLine: (lineId: string) => void;
   removeLine: (lineId: string) => void;
-  addElement: (lineId: string) => void;
+  addElement: (lineId: string, elementId: string) => void;
   removeElement: (lineId: string, elementId: string) => void;
   updateElement: (lineId: string, elementId: string, value: Partial<ILineElement>) => void;
 }
@@ -82,34 +82,37 @@ export const EditProvider: React.FC<IProps> = ({ children }: IProps) => {
 
   // -------------------------------------------------------------------------------------------------------------------
 
-  const addElement = useCallback((lineId: string) => {
-    const newId = getId();
-
+  const addElement = useCallback((lineId: string, elementId: string) => {
     setLines((lines: ILine[]) => {
       const result: ILine[] = [];
+      const newId = getId();
 
       lines.forEach((line: ILine) => {
         if (line.id === lineId) {
+
+          const elements = [...line.elements];
+          const index = elements.findIndex((lineElement: ILineElement) => lineElement.id === elementId);
+
+          if (index >= 0) {
+            elements.splice(index + 1, 0, {
+              id: newId,
+              content: '',
+              token: ''
+            });
+          }
+
           result.push({
             ...line,
-            elements: [
-              ...line.elements,
-              {
-                id: newId,
-                content: '',
-                token: ''
-              }
-            ]
+            elements
           });
         } else {
           result.push(line);
         }
       });
 
+      setFocus(newId);
       return result;
     });
-
-    setFocus(newId);
   }, []);
 
   const removeElement = useCallback((lineId: string, elementId: string) => {

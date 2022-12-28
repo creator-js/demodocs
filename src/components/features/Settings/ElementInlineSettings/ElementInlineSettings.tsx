@@ -20,7 +20,6 @@ export const ElementInlineSettings: React.FC<IProps> = ({ line, lineElement, onD
 
   // -------------------------------------------------------------------------------------------------------------------
 
-
   return (
     <div className='dg__element-settings'>
       <section className='dg__element-settings-section'>
