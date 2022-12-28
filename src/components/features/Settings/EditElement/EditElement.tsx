@@ -1,7 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, {
+  useCallback, useContext, useState
+} from 'react';
 import './EditElement.css';
 import { ILine, ILineElement } from '../../../../@types/steps';
 import { EditLineContext } from '../EditProvider/EditProvider';
+import { ElementInlineSettings } from '../ElementInlineSettings';
 
 interface IProps {
   lineElement: ILineElement;
@@ -14,13 +17,16 @@ export const EditElement: React.FC<IProps> = ({ line, lineElement }: IProps) => 
 
   const { addLine, addElement, removeElement, updateElement } = useContext(EditLineContext);
 
-  const pickColor = (token: string) => () => {
-    updateElement(line.id, lineElement.id, { token });
+  const onDismiss = useCallback(() => {
     toggleColorPicker(false);
-  };
+  }, []);
 
-  const onClick = () => {
-    toggleColorPicker(true);
+  const onClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLDivElement;
+
+    if (target.textContent?.length !== 0) {
+      toggleColorPicker(true);
+    }
   };
 
   const onInput = (e: any) => {
@@ -54,15 +60,7 @@ export const EditElement: React.FC<IProps> = ({ line, lineElement }: IProps) => 
       <div className={`dg__line-element-input ${lineElement.token || ''}`} id={lineElement.id} contentEditable={true}
         onClick={onClick} onInput={onInput} onKeyDown={onKeyDown}/>
       {
-        showColorPicker && (
-          <div className='dg__line-element__color-picker'>
-            <div onClick={pickColor('orange')} className='dg__color-item-circle orange'/>
-            <div onClick={pickColor('purple')} className='dg__color-item-circle purple'/>
-            <div onClick={pickColor('white')} className='dg__color-item-circle white'/>
-            <div onClick={pickColor('green')} className='dg__color-item-circle green'/>
-            <div onClick={pickColor('yellow')} className='dg__color-item-circle yellow'/>
-          </div>
-        )
+        showColorPicker && <ElementInlineSettings lineElement={lineElement} line={line} onDismiss={onDismiss}/>
       }
     </div>
   );

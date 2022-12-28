@@ -113,10 +113,9 @@ export const EditProvider: React.FC<IProps> = ({ children }: IProps) => {
   }, []);
 
   const removeElement = useCallback((lineId: string, elementId: string) => {
-    let nextElementToFocus: ILineElement | undefined = undefined;
-
     setLines((lines: ILine[]) => {
       const result: ILine[] = [];
+      let nextElementToFocus: ILineElement | undefined = undefined;
 
       lines.forEach((line: ILine) => {
         if (line.id === lineId) {
@@ -143,12 +142,12 @@ export const EditProvider: React.FC<IProps> = ({ children }: IProps) => {
         }
       });
 
+      if (nextElementToFocus) {
+        setFocus((nextElementToFocus as ILineElement).id);
+      }
+
       return result;
     });
-
-    if (nextElementToFocus) {
-      setFocus((nextElementToFocus as ILineElement).id);
-    }
   }, []);
 
   const updateElement = useCallback((lineId: string, elementId: string, value: Partial<ILineElement>) => {

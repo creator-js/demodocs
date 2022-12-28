@@ -1,0 +1,50 @@
+.dg__element-settings {
+    padding: 16px;
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 1px);
+    left: 0;
+    background-color: var(--tile-hover);
+    border-radius: 4px;
+}
+
+.dg__element-settings-title {
+    margin-bottom: 16px;
+}
+
+.dg__element-settings-block {
+    display: flex;
+    gap: 8px;
+}
+
+.dg__color-item-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.dg__color-item-circle:hover {
+    border: 1px solid white;
+}
+
+.dg__color-item-circle.orange {
+    background-color: #bd6220;
+}
+
+.dg__color-item-circle.white {
+    background-color: #a5afb9;
+}
+
+.dg__color-item-circle.purple {
+    background-color: #7a7aa8;
+}
+
+.dg__color-item-circle.yellow {
+    background-color: #f7c068;
+}
+
+.dg__color-item-circle.green {
+    background-color: #6a8455;
+}
